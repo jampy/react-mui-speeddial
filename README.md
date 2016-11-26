@@ -14,6 +14,10 @@ beneath the action buttons.
 npm i --save react-mui-speeddial
 ```
 
+## Screenshot
+
+![Screenshot](https://i.imgur.com/WcPxbDb.png)
+
 ## Usage
 
 ```jsx

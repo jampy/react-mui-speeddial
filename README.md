@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/react-mui-speeddial.png)](https://npmjs.org/package/react-mui-speeddial)
 
-A Speed dial according to the [Material Design guide](https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-behavior). Scroll down to "Speed dial" 
+A Speed dial according to the [Material Design guide](https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-transitions). Scroll down to "Speed dial" 
 for an introduction.
 
 Additionally to the Google referencem this component adds optional labels 

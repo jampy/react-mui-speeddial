@@ -8,7 +8,7 @@ beneath the action buttons.
  
 ## Usage
 
-```jsx harmony
+```jsx
 import { SpeedDial, SpeedDialItem } from 'react-mui-speeddial';
 
 // just some icons for illustration (example only):

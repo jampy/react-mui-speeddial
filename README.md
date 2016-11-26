@@ -68,6 +68,8 @@ transforms into a "close" icon.
   FAB will *open* additional choices.
  - `fabContentClose` = children for the FAB in the *opened* state. If not 
   specified, the value of `fabContentOpen` will be used instead.
+ - `onOpenCloseRequest` = optional callback; called when the user clicks 
+  the main FAB  
  - `children` = the children of the `<SpeedDial>` component should be 
   `<SpeedDialItem>` instances (see below). 
   
@@ -78,7 +80,9 @@ transforms into a "close" icon.
  - `label` = an optional label to display on the left of the mini-FAB. This 
   can be a simple text or even other React components. The content is 
   vertically aligned to the FAB.
-    
+ - `onTouchTap` = called when the user clicks the mini-FAB (*not* called when
+  the label is clicked)
+
 ## License
 This project is licensed under the terms of the
 [MIT license](https://github.com/callemall/material-ui/blob/master/LICENSE)

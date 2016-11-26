@@ -1,0 +1,34 @@
+{
+  "name": "react-mui-speeddial",
+  "version": "0.0.1",
+  "description": "a speed dial component for Material UI",
+  "main": "./index.js",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "babel-polyfill": "^6.13.0",
+    "material-ui": "^0.16.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-preset-react": "^6.16.0"
+  },
+  "scripts": {
+    "build": "sh scripts/build.sh",
+    "prepublish": "npm run build",
+    "test": "true"
+  },
+  "keywords": [
+    "material-ui",
+    "material design",
+    "react-component",
+    "react",
+    "speed dial",
+    "floating action button"
+  ],
+  "author": "Udo Giacomozzi <udo@nova-sys.net>",
+  "license": "MIT"
+}

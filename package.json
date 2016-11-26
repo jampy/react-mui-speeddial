@@ -1,8 +1,8 @@
 {
   "name": "react-mui-speeddial",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a speed dial component for Material UI",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "dependencies": {
   },
   "peerDependencies": {

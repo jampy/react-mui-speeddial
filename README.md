@@ -1,11 +1,19 @@
 # Speeddial (enhanced Floating Action button) for [Material-UI](https://github.com/callemall/material-ui)
 
+[![NPM](https://nodei.co/npm/react-mui-speeddial.png)](https://npmjs.org/package/react-mui-speeddial)
+
 A Speed dial according to the [Material Design guide](https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-behavior). Scroll down to "Speed dial" 
 for an introduction.
 
 Additionally to the Google referencem this component adds optional labels 
 beneath the action buttons.
  
+## Installation
+
+```
+npm i --save react-mui-speeddial
+```
+
 ## Usage
 
 ```jsx

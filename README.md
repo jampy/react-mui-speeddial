@@ -84,5 +84,4 @@ transforms into a "close" icon.
   the label is clicked)
 
 ## License
-This project is licensed under the terms of the
-[MIT license](https://github.com/callemall/material-ui/blob/master/LICENSE)
+This project is licensed under the terms of the [MIT license](LICENSE)

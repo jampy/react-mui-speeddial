@@ -1,7 +1,15 @@
 {
   "name": "react-mui-speeddial",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a speed dial component for Material UI",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jampy/react-mui-speeddial.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jampy/react-mui-speeddial/issues"
+  },
+  "homepage": "https://github.com/jampy/react-mui-speeddial#readme",
   "main": "./dist/index.js",
   "dependencies": {
   },

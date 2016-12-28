@@ -84,6 +84,10 @@ transforms into a "close" icon.
   the main FAB  
  - `children` = the children of the `<SpeedDial>` component should be 
   `<SpeedDialItem>` instances (see below). 
+ - `style` = CSS style of the root container. Use this to position the FAB. 
+  Note that `position` must remain `relative` or `absolute`. You might also 
+  want to encapsulate the `<SpeedDial>` in a positioned parent container to 
+  avoid problems. 
   
 ## `<SpeedDialItem>` props
 

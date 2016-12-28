@@ -37,7 +37,7 @@ export const SpeedDial = React.createClass({
 
   render: function() {
 
-    let { open, effect } = this.props;
+    let { open, effect, style } = this.props;
 
     if (open === undefined)
       open = this.state.internalOpen;
@@ -54,7 +54,7 @@ export const SpeedDial = React.createClass({
       })
     );
 
-    return <div style={styles.container}>
+    return <div style={{...styles.container, ...style}}>
 
       <FloatingActionButton
         {...this.props.fabProps}

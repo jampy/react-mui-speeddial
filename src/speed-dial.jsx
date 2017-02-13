@@ -47,9 +47,11 @@ export const SpeedDial = React.createClass({
 
     let enhancedChildren = React.Children.map(this.props.children,
       (child, index) => React.cloneElement(child, {
+        ...child.props,
         effect,
         index,
         visible: open,
+        itemPosition: this.props.itemsPosition,
         onCloseRequest: this.handleCloseRequest
       })
     );
@@ -73,3 +75,7 @@ export const SpeedDial = React.createClass({
   }
 
 });
+
+SpeedDial.defaultProps = {
+  itemsPosition: 'above' // above or below
+};

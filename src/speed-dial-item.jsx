@@ -87,24 +87,12 @@ export class SpeedDialItem extends React.PureComponent {
         backgroundColor={this.props.backgroundColor}
         style={this.props.style}
         iconStyle={this.props.iconStyle}
-        onTouchTap={this.handleTouchTap}
+        onTouchTap={(ev) => { this.handleTouchTap(ev); }}
       >
         {this.props.fabContent}
       </FloatingActionButton>
     </div>);
   }
-};
-
-SpeedDialItem.propTypes = {
-  label: React.PropTypes.any,
-  labelStyle: React.PropTypes.object,
-  backgroundColor: React.PropTypes.string,
-  style: React.PropTypes.object,
-  iconStyle: React.PropTypes.object,
-  secondary: React.PropTypes.bool,
-  index: React.PropTypes.number,
-  visible: React.PropTypes.bool,
-  itemPosition: React.PropTypes.string,
 };
 
 SpeedDialItem.defaultProps = {

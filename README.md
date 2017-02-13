@@ -88,6 +88,7 @@ transforms into a "close" icon.
   Note that `position` must remain `relative` or `absolute`. You might also 
   want to encapsulate the `<SpeedDial>` in a positioned parent container to 
   avoid problems. 
+ - `itemsPosition` = show buttons above or below the main button
   
 ## `<SpeedDialItem>` props
 
@@ -98,6 +99,7 @@ transforms into a "close" icon.
   vertically aligned to the FAB.
  - `onTouchTap` = called when the user clicks the mini-FAB (*not* called when
   the label is clicked)
+ - `secondary`, `backgroundColor`, `style`, `iconStyle` = material-ui FloatingActionButton exposed props
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)

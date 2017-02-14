@@ -5,6 +5,7 @@ const styles = {
 
   itemContainer: {
     position: "absolute",
+    zIndex: 9999,
     right: 48,
     top: 20,
 

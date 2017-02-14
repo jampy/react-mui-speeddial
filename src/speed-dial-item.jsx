@@ -5,7 +5,6 @@ const styles = {
 
   itemContainer: {
     position: "absolute",
-    zIndex: 9999,
     right: 48,
     top: 20,
 
@@ -65,6 +64,7 @@ export class SpeedDialItem extends React.PureComponent {
     let style = {
       pointerEvents: visible ? "" : "none",
       position: "absolute",
+      zIndex: 9999,
       whiteSpace: "nowrap",
       right: 8,
       bottom: getYPos(index, itemPosition)

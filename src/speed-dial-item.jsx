@@ -18,79 +18,85 @@ const styles = {
 };
 
 
-const effects = {
+function getYPos(index, position) {
+  let newYPos = 81 + index * 56;
 
-  "none": (visible, index) => ({
-    display: visible ? "" : "none"
-  }),
+  if (position === 'below') {
+    newYPos = -114 + (index * 56);
+  }
 
-  "fade-staggered": (visible, index) => ({
-    transition: visible ? "450ms" : "300ms",
-    transitionDelay: visible ? (index * 0.025) + "s" : "",
-    transform: "translateY(" + (visible ? 0 : "5px") + ")",
-    opacity: visible ? 1 : 0
-  }),
-
-  "fade":  (visible, index) => ({
-    transition: visible ? "450ms" : "300ms",
-    opacity: visible ? 1 : 0
-  }),
-
-  "slide": (visible, index) => ({
-    transition: visible ? "250ms" : "300ms",
-    transform: "translateY(" + (visible ? 0 : getYPos(index) + "px") + ")",
-    opacity: visible ? 1 : 0
-  })
-
-};
-
-
-function getYPos(index) {
-  return 81 + index * 56;
+  return newYPos;
 }
 
-export const SpeedDialItem = React.createClass({
+export class SpeedDialItem extends React.PureComponent {
+  effects = {
+    "none": (visible, index) => ({
+      display: visible ? "" : "none"
+    }),
+
+    "fade-staggered": (visible, index) => ({
+      transition: visible ? "450ms" : "300ms",
+      transitionDelay: visible ? (index * 0.025) + "s" : "",
+      transform: "translateY(" + (visible ? 0 : (this.props.itemPosition === 'above' ? "5px" : "-5px")) + ")",
+      opacity: visible ? 1 : 0
+    }),
+
+    "fade":  (visible, index) => ({
+      transition: visible ? "450ms" : "300ms",
+      opacity: visible ? 1 : 0
+    }),
+
+    "slide": (visible, index) => ({
+      transition: visible ? "250ms" : "300ms",
+      transform: "translateY(" + (visible ? 0 : getYPos(index, this.props.itemsPosition) + "px") + ")",
+      opacity: visible ? 1 : 0
+    }),
+  };
 
   handleTouchTap(ev) {
     this.props.onCloseRequest();
     this.props.onTouchTap(ev);
-  },
+  }
 
-  render: function() {
-
-    const { index, visible } = this.props;
+  render() {
+    const { index, visible, itemPosition } = this.props;
 
     let style = {
       pointerEvents: visible ? "" : "none",
       position: "absolute",
+      zIndex: 9999,
       whiteSpace: "nowrap",
       right: 8,
-      bottom: getYPos(index)
+      bottom: getYPos(index, itemPosition)
     };
 
-    let fx = effects[this.props.effect];
+    let fx = this.effects[this.props.effect];
 
     if (!fx)
       fx = effects.none;
 
     style = { ...style, ...fx(visible, index) };
 
-    return <div style={style}>
-
-      <div style={styles.itemContainer}>
+    return (<div style={style}>
+      <div style={Object.assign(styles.itemContainer, this.props.labelStyle)}>
         {this.props.label}
       </div>
 
       <FloatingActionButton
-        mini={true}
-        secondary={true}
-        onTouchTap={this.handleTouchTap}
+        mini={true}        
+        secondary={this.props.secondary}
+        backgroundColor={this.props.backgroundColor}
+        style={this.props.style}
+        iconStyle={this.props.iconStyle}
+        onTouchTap={(ev) => { this.handleTouchTap(ev); }}
       >
         {this.props.fabContent}
       </FloatingActionButton>
-
-    </div>;
-
+    </div>);
   }
+};
 
-});
+SpeedDialItem.defaultProps = {
+  itemPosition: 'above', // above or below
+  secondary: true,
+};

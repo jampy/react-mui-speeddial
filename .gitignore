@@ -1,1 +1,20 @@
 .idea/
+
+npm-debug.log*
+
+# Dist folder
+dist
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# OS files
+.DS_Store
+.idea
+npm-debug.log

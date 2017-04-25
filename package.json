@@ -12,6 +12,7 @@
   "homepage": "https://github.com/jampy/react-mui-speeddial#readme",
   "main": "./dist/index.js",
   "dependencies": {
+    "create-react-class": "^15.5.2"
   },
   "peerDependencies": {
     "babel-polyfill": "^6.13.0",

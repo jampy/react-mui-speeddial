@@ -1,4 +1,5 @@
 import React from 'react'
+import createReactClass from 'create-react-class'
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { FabSpinner } from './fab-spinner';
 
@@ -12,7 +13,7 @@ const styles = {
 };
 
 
-export const SpeedDial = React.createClass({
+export const SpeedDial = createReactClass({
 
   getInitialState() {
     return {

@@ -15,7 +15,7 @@
   },
   "peerDependencies": {
     "babel-polyfill": "^6.13.0",
-    "material-ui": "^0.16.1"
+    "material-ui": "^0.17.4"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

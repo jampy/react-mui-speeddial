@@ -1,5 +1,5 @@
 import React from 'react'
-import FloatingActionButton from 'material-ui/FloatingActionButton';
+import Button from 'material-ui/Button';
 
 const styles = {
 
@@ -81,13 +81,12 @@ export const SpeedDialItem = React.createClass({
         {this.props.label}
       </div>
 
-      <FloatingActionButton
-        mini={true}
-        secondary={true}
+      <Button fab
+        color="primary"
         onTouchTap={this.handleTouchTap}
       >
         {this.props.fabContent}
-      </FloatingActionButton>
+      </Button>
 
     </div>;
 

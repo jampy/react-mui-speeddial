@@ -1,5 +1,5 @@
 import React from 'react'
-import FloatingActionButton from 'material-ui/FloatingActionButton';
+import Button from 'material-ui/Button';
 import { FabSpinner } from './fab-spinner';
 
 const styles = {
@@ -56,7 +56,8 @@ export const SpeedDial = React.createClass({
 
     return <div style={{...styles.container, ...style}}>
 
-      <FloatingActionButton
+      <Button fab
+        color="primary"
         {...this.props.fabProps}
         onTouchTap={this.handleFabTouchTap}
       >
@@ -65,7 +66,7 @@ export const SpeedDial = React.createClass({
           bContent={this.props.fabContentClose || this.props.fabContentOpen}
           showB={open}
         />
-      </FloatingActionButton>
+      </Button>
 
       {enhancedChildren}
 

@@ -27,14 +27,14 @@ export const FabSpinner = React.createClass({
     let ac = React.cloneElement(this.props.aContent, {
       style: {
         ...this.props.style,
-        ...this.props.aContent.style
+        ...this.props.aContent.props.style
       }
     });
 
     let bc = React.cloneElement(this.props.bContent, {
       style: {
         ...this.props.style,
-        ...this.props.bContent.style
+        ...this.props.bContent.props.style
       }
     });
 

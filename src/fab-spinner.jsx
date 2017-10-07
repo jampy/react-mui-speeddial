@@ -1,4 +1,5 @@
 import React from 'react'
+import createReactClass from 'create-react-class'
 
 const styles = {
 
@@ -18,7 +19,7 @@ const styles = {
 };
 
 
-export const FabSpinner = React.createClass({
+export const FabSpinner = createReactClass({
 
   render: function() {
 

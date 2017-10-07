@@ -1,5 +1,7 @@
 import React from 'react'
 import FloatingActionButton from 'material-ui/FloatingActionButton';
+import createReactClass from 'create-react-class'
+
 
 const styles = {
 
@@ -49,7 +51,7 @@ function getYPos(index) {
   return 81 + index * 56;
 }
 
-export const SpeedDialItem = React.createClass({
+export const SpeedDialItem = createReactClass({
 
   handleTouchTap(ev) {
     this.props.onCloseRequest();
@@ -75,9 +77,9 @@ export const SpeedDialItem = React.createClass({
 
     style = { ...style, ...fx(visible, index) };
 
-    return <div style={style}>
+    return <div className="speed-dial-item" style={style}>
 
-      <div style={styles.itemContainer}>
+      <div className="speed-dial-item-label" style={styles.itemContainer}>
         {this.props.label}
       </div>
 

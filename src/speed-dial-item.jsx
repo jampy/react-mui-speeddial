@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
 
 const styles = {
 
@@ -78,7 +79,7 @@ export const SpeedDialItem = React.createClass({
     return <div style={style}>
 
       <div style={styles.itemContainer}>
-        {this.props.label}
+        <Typography type="body2">{this.props.label}</Typography>
       </div>
 
       <Button fab

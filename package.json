@@ -11,24 +11,33 @@
   },
   "homepage": "https://github.com/jampy/react-mui-speeddial#readme",
   "main": "./dist/index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "babel-polyfill": "^6.13.0",
-    "material-ui": "^1.0.0-beta.5",
-    "material-ui-icons": "^1.0.0-beta.5"
+    "material-ui": "1.0.0-beta.17",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "react": "16",
+    "react-dom": "16"
   },
   "devDependencies": {
+    "@storybook/react": "^3.3.3",
     "babel-cli": "^6.18.0",
+    "babel-core": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
-    "babel-preset-react": "^6.16.0"
+    "material-ui": "1.0.0-beta.17",
+    "material-ui-icons": "1.0.0-beta.17",
+    "react": "16.0.0",
+    "react-dom": "16.0.0"
   },
   "scripts": {
     "build": "sh scripts/build.sh",
     "prepublish": "npm run build",
-    "test": "true"
+    "test": "true",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "postinhstall": "yarn add -P --no-lockfile $(node -e \"process.stdout.write(String(Object.entries(require('./package.json').peerDependencies).map(d => d.join('@')).join(' ')))\")"
   },
   "keywords": [
     "material-ui",

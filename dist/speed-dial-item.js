@@ -17,6 +17,10 @@ var _Button = require('material-ui/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
+var _Typography = require('material-ui/Typography');
+
+var _Typography2 = _interopRequireDefault(_Typography);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
@@ -107,7 +111,11 @@ var SpeedDialItem = exports.SpeedDialItem = _react2.default.createClass({
       _react2.default.createElement(
         'div',
         { style: styles.itemContainer },
-        this.props.label
+        _react2.default.createElement(
+          _Typography2.default,
+          { type: 'body2' },
+          this.props.label
+        )
       ),
       _react2.default.createElement(
         _Button2.default,

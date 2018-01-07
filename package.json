@@ -1,5 +1,5 @@
 {
-  "name": "react-mui-v1-speeddial",
+  "name": "react-material-speeddial",
   "version": "0.0.1",
   "description": "a speed dial component for Material UI built using material-ui v1",
   "repository": {
@@ -9,7 +9,7 @@
   "bugs": {
     "url": "https://github.com/rahulravindran2709/react-material-speeddial/issues"
   },
-  "homepage": "https://github.com/jampy/react-material-speeddial#readme",
+  "homepage": "https://github.com/rahulravindran2709/react-material-speeddial#readme",
   "main": "./dist/index.js",
   "dependencies": {
     "prop-types": "^15.6.0"

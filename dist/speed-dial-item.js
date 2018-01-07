@@ -120,7 +120,8 @@ var SpeedDialItem = function (_React$Component) {
           index = _props.index,
           visible = _props.visible,
           effect = _props.effect,
-          classes = _props.classes;
+          classes = _props.classes,
+          itemButtonColor = _props.itemButtonColor;
 
       var fx = effects[this.props.effect];
       return _react2.default.createElement(
@@ -138,7 +139,7 @@ var SpeedDialItem = function (_React$Component) {
         _react2.default.createElement(
           _Button2.default,
           { fab: true,
-            color: 'primary',
+            color: itemButtonColor,
             onTouchTap: this.handleTouchTap
           },
           this.props.fabContent
@@ -150,9 +151,11 @@ var SpeedDialItem = function (_React$Component) {
 }(_react2.default.Component);
 
 SpeedDialItem.propTypes = {
-  effect: _propTypes2.default.oneOf(['none', 'fade', 'slide', 'fade-staggered'])
+  effect: _propTypes2.default.oneOf(['none', 'fade', 'slide', 'fade-staggered']),
+  itemButtonColor: _propTypes2.default.oneOf(['primary', 'secondary', 'accent'])
 };
 SpeedDialItem.defaultProps = {
-  effect: 'none'
+  effect: 'none',
+  itemButtonColor: 'primary'
 };
 exports.default = (0, _styles.withStyles)(styles)(SpeedDialItem);

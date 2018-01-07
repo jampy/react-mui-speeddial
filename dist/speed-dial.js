@@ -98,6 +98,8 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
           _props$open = _props.open,
           open = _props$open === undefined ? internalOpen : _props$open,
           classes = _props.classes,
+          fabButtonColor = _props.fabButtonColor,
+          itemButtonColor = _props.itemButtonColor,
           effect = _props.effect,
           style = _props.style,
           children = _props.children,
@@ -110,7 +112,8 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
           effect: effect,
           index: index,
           visible: open,
-          onCloseRequest: _this2.handleCloseRequest
+          onCloseRequest: _this2.handleCloseRequest,
+          itemButtonColor: itemButtonColor
         });
       });
       return _react2.default.createElement(
@@ -122,7 +125,7 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
           _react2.default.createElement(
             _Button2.default,
             (0, _extends3.default)({ fab: true,
-              color: 'primary'
+              color: fabButtonColor
             }, fabProps, {
               onTouchTap: this.handleFabTouchTap
             }),
@@ -143,10 +146,14 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
 SpeedDial.propTypes = {
   open: _propTypes2.default.bool,
   effect: _propTypes2.default.oneOf(['none', 'fade', 'slide', 'fade-staggered']),
+  fabButtonColor: _propTypes2.default.oneOf(['primary', 'secondary', 'accent']),
+  itemButtonColor: _propTypes2.default.oneOf(['primary', 'secondary', 'accent']),
   fabContentClose: _propTypes2.default.node,
   fabContentOpen: _propTypes2.default.node.isRequired
 };
 SpeedDial.defaultProps = {
-  effect: 'fade-staggered'
+  effect: 'fade-staggered',
+  fabButtonColor: 'primary',
+  itemButtonColor: 'primary'
 };
 exports.default = (0, _styles.withStyles)(styles)(SpeedDial);

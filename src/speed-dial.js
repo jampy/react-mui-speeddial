@@ -34,19 +34,21 @@ export class SpeedDial extends React.Component {
   }
   render() {
     const { internalOpen } = this.state;
-    const { open=internalOpen, classes, effect, style, children, fabProps, fabContentOpen, fabContentClose } = this.props;
+    const { open=internalOpen, classes,
+      fabButtonColor, itemButtonColor, effect, style, children, fabProps, fabContentOpen, fabContentClose } = this.props;
     const enhancedChildren = React.Children.map(children,
       (child, index) => React.cloneElement(child, {
         effect,
         index,
         visible: open,
-        onCloseRequest: this.handleCloseRequest
+        onCloseRequest: this.handleCloseRequest,
+        itemButtonColor,
       })
     );
     return (<div className={classes.container}>
       <div className={classes.fabButton}>
       <Button fab
-        color="primary"
+        color={fabButtonColor}
         {...fabProps}
         onTouchTap={this.handleFabTouchTap}
       >
@@ -64,10 +66,14 @@ export class SpeedDial extends React.Component {
 SpeedDial.propTypes = {
   open: PropTypes.bool,
   effect: PropTypes.oneOf(['none', 'fade', 'slide', 'fade-staggered']),
+  fabButtonColor: PropTypes.oneOf(['primary', 'secondary', 'accent']),
+  itemButtonColor: PropTypes.oneOf(['primary', 'secondary', 'accent']),
   fabContentClose: PropTypes.node,
   fabContentOpen: PropTypes.node.isRequired,
 };
 SpeedDial.defaultProps = {
-  effect: 'fade-staggered'
+  effect: 'fade-staggered',
+  fabButtonColor: 'primary',
+  itemButtonColor: 'primary'
 }
 export default withStyles(styles)(SpeedDial);

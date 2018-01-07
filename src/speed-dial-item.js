@@ -46,14 +46,14 @@ class SpeedDialItem extends React.Component {
     this.props.onTouchTap(ev);
   }
   render() {
-    const { index, visible, effect, classes } = this.props;
+    const { index, visible, effect, classes, itemButtonColor } = this.props;
     const fx = effects[this.props.effect];
     return (<div className={classes.container} style={{...fx(visible, index)}}>
       <div className={classes.itemText}>
         <Typography type="body2">{this.props.label}</Typography>
       </div>
       <Button fab
-        color="primary"
+        color={itemButtonColor}
         onTouchTap={this.handleTouchTap}
       >
         {this.props.fabContent}
@@ -63,8 +63,10 @@ class SpeedDialItem extends React.Component {
 }
 SpeedDialItem.propTypes = {
   effect: PropTypes.oneOf(['none', 'fade', 'slide', 'fade-staggered']),
+  itemButtonColor: PropTypes.oneOf(['primary', 'secondary', 'accent']),
 }
 SpeedDialItem.defaultProps = {
   effect: 'none',
+  itemButtonColor: 'primary'
 }
 export default withStyles(styles)(SpeedDialItem)

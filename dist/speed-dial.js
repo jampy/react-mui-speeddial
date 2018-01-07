@@ -33,9 +33,15 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Button = require('material-ui/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
+
+var _styles = require('material-ui/styles');
 
 var _fabSpinner = require('./fab-spinner');
 
@@ -43,15 +49,17 @@ var _fabSpinner2 = _interopRequireDefault(_fabSpinner);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column-reverse"
-  },
-  fabButton: {
-    display: 'flex',
-    justifyContent: 'flex-end'
-  }
+var styles = function styles() {
+  return {
+    container: {
+      display: "flex",
+      flexDirection: "column-reverse"
+    },
+    fabButton: {
+      display: 'flex',
+      justifyContent: 'flex-end'
+    }
+  };
 };
 
 var SpeedDial = exports.SpeedDial = function (_React$Component) {
@@ -89,9 +97,13 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
       var _props = this.props,
           _props$open = _props.open,
           open = _props$open === undefined ? internalOpen : _props$open,
+          classes = _props.classes,
           effect = _props.effect,
           style = _props.style,
-          children = _props.children;
+          children = _props.children,
+          fabProps = _props.fabProps,
+          fabContentOpen = _props.fabContentOpen,
+          fabContentClose = _props.fabContentClose;
 
       var enhancedChildren = _react2.default.Children.map(children, function (child, index) {
         return _react2.default.cloneElement(child, {
@@ -103,20 +115,20 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
       });
       return _react2.default.createElement(
         'div',
-        { style: (0, _extends3.default)({}, styles.container, style) },
+        { className: classes.container },
         _react2.default.createElement(
           'div',
-          { style: styles.fabButton },
+          { className: classes.fabButton },
           _react2.default.createElement(
             _Button2.default,
             (0, _extends3.default)({ fab: true,
               color: 'primary'
-            }, this.props.fabProps, {
+            }, fabProps, {
               onTouchTap: this.handleFabTouchTap
             }),
             _react2.default.createElement(_fabSpinner2.default, {
-              aContent: this.props.fabContentOpen,
-              bContent: this.props.fabContentClose || this.props.fabContentOpen,
+              aContent: fabContentOpen,
+              bContent: fabContentClose || fabContentOpen,
               showB: open
             })
           )
@@ -128,70 +140,13 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
   return SpeedDial;
 }(_react2.default.Component);
 
-SpeedDial.propTypes = {};
+SpeedDial.propTypes = {
+  open: _propTypes2.default.bool,
+  effect: _propTypes2.default.oneOf(['none', 'fade', 'slide', 'fade-staggered']),
+  fabContentClose: _propTypes2.default.node,
+  fabContentOpen: _propTypes2.default.node.isRequired
+};
 SpeedDial.defaultProps = {
   effect: 'fade-staggered'
 };
-exports.default = SpeedDial;
-/* export const SpeedDial = React.createClass({
-
-  getInitialState() {
-    return {
-      internalOpen: false
-    }
-  },
-
-
-  handleFabTouchTap() {
-    this.setState({
-      internalOpen: !this.state.internalOpen
-    });
-
-    let cb = this.props.onOpenCloseRequest;
-    cb && cb();
-  },
-
-
-  handleCloseRequest() {
-    this.handleFabTouchTap();
-  },
-
-  render: function() {
-
-    let { open, effect, style } = this.props;
-
-    if (open === undefined)
-      open = this.state.internalOpen;
-
-    if (effect === undefined)
-      effect = "fade-staggered";
-
-    let enhancedChildren = React.Children.map(this.props.children,
-      (child, index) => React.cloneElement(child, {
-        effect,
-        index,
-        visible: open,
-        onCloseRequest: this.handleCloseRequest
-      })
-    );
-
-    return <div style={{...styles.container, ...style}}>
-
-      <Button fab
-        color="primary"
-        {...this.props.fabProps}
-        onTouchTap={this.handleFabTouchTap}
-      >
-        <FabSpinner
-          aContent={this.props.fabContentOpen}
-          bContent={this.props.fabContentClose || this.props.fabContentOpen}
-          showB={open}
-        />
-      </Button>
-
-      {enhancedChildren}
-
-    </div>;
-  }
-
-}); */
+exports.default = (0, _styles.withStyles)(styles)(SpeedDial);

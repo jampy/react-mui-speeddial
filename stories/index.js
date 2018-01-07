@@ -8,13 +8,13 @@ import Close from 'material-ui-icons/Close';
 import { SpeedDial, SpeedDialItem } from '../src/index';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
-// import MyButton from '../src/index';
-const addToCollection = () => {
-    // this.props.openAddGameToCollectionDlg();
+
+const addMethod1 = () => {
+    console.log('Option 1 clicked');
   }
 
-const addToWishlist = () => {
-    // this.props.openAddGameToWishlistDlg();
+const addMethod2 = () => {
+    console.log('Option 2 clicked');
   }
 const styles = { height: '400px', padding: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box' };
 const Container = ({ children }) => (<div style={styles}><div>{children}</div></div>);
@@ -25,14 +25,14 @@ storiesOf('Button', module)
       fabContentClose={<Close />}
     >
       <SpeedDialItem
-        label="Add to collection"
+        label="Add 1"
         fabContent={<PlaylistAdd />}
-        onTouchTap={addToCollection}
+        onTouchTap={addMethod1}
       />
       <SpeedDialItem
-        label="Add to wishlist"
+        label="Add 2"
         fabContent={<NoteAdd />}
-        onTouchTap={addToWishlist}
+        onTouchTap={addMethod2}
       />
     </SpeedDial></Container>
   ));

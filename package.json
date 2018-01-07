@@ -1,15 +1,15 @@
 {
-  "name": "react-mui-speeddial",
-  "version": "0.0.6",
-  "description": "a speed dial component for Material UI",
+  "name": "react-mui-v1-speeddial",
+  "version": "0.0.1",
+  "description": "a speed dial component for Material UI built using material-ui v1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jampy/react-mui-speeddial.git"
+    "url": "git+https://github.com/rahulravindran2709/react-material-speeddial.git"
   },
   "bugs": {
-    "url": "https://github.com/jampy/react-mui-speeddial/issues"
+    "url": "https://github.com/rahulravindran2709/react-material-speeddial/issues"
   },
-  "homepage": "https://github.com/jampy/react-mui-speeddial#readme",
+  "homepage": "https://github.com/jampy/react-material-speeddial#readme",
   "main": "./dist/index.js",
   "dependencies": {
     "prop-types": "^15.6.0"
@@ -18,8 +18,8 @@
     "babel-polyfill": "^6.13.0",
     "material-ui": "1.0.0-beta.17",
     "material-ui-icons": "^1.0.0-beta.17",
-    "react": "16",
-    "react-dom": "16"
+    "react": "16.0.0",
+    "react-dom": "16.0.0"
   },
   "devDependencies": {
     "@storybook/react": "^3.3.3",
@@ -51,6 +51,6 @@
     "speed dial",
     "floating action button"
   ],
-  "author": "Udo Giacomozzi <udo@nova-sys.net>",
+  "author": "Rahul Ravindran <rahulravindran2709@gmail.com>",
   "license": "MIT"
 }

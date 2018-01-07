@@ -36,6 +36,10 @@ var _Button = require('material-ui/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _styles = require('material-ui/styles');
 
 var _Typography = require('material-ui/Typography');
@@ -44,15 +48,17 @@ var _Typography2 = _interopRequireDefault(_Typography);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var newStyles = {
-  container: {
-    display: 'flex',
-    marginBottom: '8px'
-  },
-  itemText: {
-    flex: 1,
-    padding: '16px'
-  }
+var styles = function styles() {
+  return {
+    container: {
+      display: 'flex',
+      marginBottom: '8px'
+    },
+    itemText: {
+      flex: 1,
+      padding: '16px'
+    }
+  };
 };
 var effects = {
   "none": function none(visible, index) {
@@ -113,15 +119,17 @@ var SpeedDialItem = function (_React$Component) {
       var _props = this.props,
           index = _props.index,
           visible = _props.visible,
-          effect = _props.effect;
+          effect = _props.effect,
+          classes = _props.classes,
+          itemButtonColor = _props.itemButtonColor;
 
       var fx = effects[this.props.effect];
       return _react2.default.createElement(
         'div',
-        { style: (0, _extends3.default)({}, newStyles.container, fx(visible, index)) },
+        { className: classes.container, style: (0, _extends3.default)({}, fx(visible, index)) },
         _react2.default.createElement(
           'div',
-          { style: newStyles.itemText },
+          { className: classes.itemText },
           _react2.default.createElement(
             _Typography2.default,
             { type: 'body2' },
@@ -131,7 +139,7 @@ var SpeedDialItem = function (_React$Component) {
         _react2.default.createElement(
           _Button2.default,
           { fab: true,
-            color: 'primary',
+            color: itemButtonColor,
             onTouchTap: this.handleTouchTap
           },
           this.props.fabContent
@@ -142,7 +150,12 @@ var SpeedDialItem = function (_React$Component) {
   return SpeedDialItem;
 }(_react2.default.Component);
 
-SpeedDialItem.defaultProps = {
-  effect: 'none'
+SpeedDialItem.propTypes = {
+  effect: _propTypes2.default.oneOf(['none', 'fade', 'slide', 'fade-staggered']),
+  itemButtonColor: _propTypes2.default.oneOf(['primary', 'secondary', 'accent'])
 };
-exports.default = SpeedDialItem;
+SpeedDialItem.defaultProps = {
+  effect: 'none',
+  itemButtonColor: 'primary'
+};
+exports.default = (0, _styles.withStyles)(styles)(SpeedDialItem);

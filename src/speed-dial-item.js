@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 
-const newStyles = {
+const styles = () =>({
   container: {
     display: 'flex',
     marginBottom: '8px'
@@ -13,7 +13,7 @@ const newStyles = {
     flex: 1,
     padding: '16px',
   }
-}
+});
 const effects = {
   "none": (visible, index) => ({
     display: visible ? "" : "none"
@@ -46,10 +46,10 @@ class SpeedDialItem extends React.Component {
     this.props.onTouchTap(ev);
   }
   render() {
-    const { index, visible, effect } = this.props;
+    const { index, visible, effect, classes } = this.props;
     const fx = effects[this.props.effect];
-    return (<div style={{...newStyles.container, ...fx(visible, index)}}>
-      <div style={newStyles.itemText}>
+    return (<div className={classes.container} style={{...fx(visible, index)}}>
+      <div className={classes.itemText}>
         <Typography type="body2">{this.props.label}</Typography>
       </div>
       <Button fab
@@ -67,4 +67,4 @@ SpeedDialItem.propTypes = {
 SpeedDialItem.defaultProps = {
   effect: 'none',
 }
-export default SpeedDialItem
+export default withStyles(styles)(SpeedDialItem)

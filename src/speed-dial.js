@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from 'material-ui/Button';
+import { withStyles } from 'material-ui/styles';
 import FabSpinner from './fab-spinner';
 
-const styles = {
+const styles = () =>({
   container: {
     display: "flex",
     flexDirection: "column-reverse",
@@ -12,7 +13,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'flex-end'
   }
-};
+});
 
 export class SpeedDial extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export class SpeedDial extends React.Component {
   }
   render() {
     const { internalOpen } = this.state;
-    const { open=internalOpen, effect, style, children, fabProps, fabContentOpen, fabContentClose } = this.props;
+    const { open=internalOpen, classes, effect, style, children, fabProps, fabContentOpen, fabContentClose } = this.props;
     const enhancedChildren = React.Children.map(children,
       (child, index) => React.cloneElement(child, {
         effect,
@@ -42,8 +43,8 @@ export class SpeedDial extends React.Component {
         onCloseRequest: this.handleCloseRequest
       })
     );
-    return (<div style={{...styles.container, ...style}}>
-      <div style={styles.fabButton}>
+    return (<div className={classes.container}>
+      <div className={classes.fabButton}>
       <Button fab
         color="primary"
         {...fabProps}
@@ -57,7 +58,6 @@ export class SpeedDial extends React.Component {
       </Button>
     </div>
       {enhancedChildren}
-
     </div>);
   }
 }
@@ -70,4 +70,4 @@ SpeedDial.propTypes = {
 SpeedDial.defaultProps = {
   effect: 'fade-staggered'
 }
-export default SpeedDial;
+export default withStyles(styles)(SpeedDial);

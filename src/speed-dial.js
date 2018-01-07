@@ -33,7 +33,7 @@ export class SpeedDial extends React.Component {
   }
   render() {
     const { internalOpen } = this.state;
-    const { open=internalOpen, effect, style, children } = this.props;
+    const { open=internalOpen, effect, style, children, fabProps, fabContentOpen, fabContentClose } = this.props;
     const enhancedChildren = React.Children.map(children,
       (child, index) => React.cloneElement(child, {
         effect,
@@ -46,12 +46,12 @@ export class SpeedDial extends React.Component {
       <div style={styles.fabButton}>
       <Button fab
         color="primary"
-        {...this.props.fabProps}
+        {...fabProps}
         onTouchTap={this.handleFabTouchTap}
       >
         <FabSpinner
-          aContent={this.props.fabContentOpen}
-          bContent={this.props.fabContentClose || this.props.fabContentOpen}
+          aContent={fabContentOpen}
+          bContent={fabContentClose || fabContentOpen}
           showB={open}
         />
       </Button>
@@ -64,6 +64,8 @@ export class SpeedDial extends React.Component {
 SpeedDial.propTypes = {
   open: PropTypes.bool,
   effect: PropTypes.oneOf(['none', 'fade', 'slide', 'fade-staggered']),
+  fabContentClose: PropTypes.node,
+  fabContentOpen: PropTypes.node.isRequired,
 };
 SpeedDial.defaultProps = {
   effect: 'fade-staggered'

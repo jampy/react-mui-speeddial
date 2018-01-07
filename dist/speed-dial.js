@@ -44,12 +44,14 @@ var _fabSpinner2 = _interopRequireDefault(_fabSpinner);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
-
   container: {
-    position: "relative",
-    display: "inline-block"
+    display: "flex",
+    flexDirection: "column-reverse"
+  },
+  fabButton: {
+    display: 'flex',
+    justifyContent: 'flex-end'
   }
-
 };
 
 var SpeedDial = exports.SpeedDial = function (_React$Component) {
@@ -87,11 +89,11 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
       var _props = this.props,
           _props$open = _props.open,
           open = _props$open === undefined ? internalOpen : _props$open,
-          _props$effect = _props.effect,
-          effect = _props$effect === undefined ? "fade-staggered" : _props$effect,
-          style = _props.style;
+          effect = _props.effect,
+          style = _props.style,
+          children = _props.children;
 
-      var enhancedChildren = _react2.default.Children.map(this.props.children, function (child, index) {
+      var enhancedChildren = _react2.default.Children.map(children, function (child, index) {
         return _react2.default.cloneElement(child, {
           effect: effect,
           index: index,
@@ -103,17 +105,21 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
         'div',
         { style: (0, _extends3.default)({}, styles.container, style) },
         _react2.default.createElement(
-          _Button2.default,
-          (0, _extends3.default)({ fab: true,
-            color: 'primary'
-          }, this.props.fabProps, {
-            onTouchTap: this.handleFabTouchTap
-          }),
-          _react2.default.createElement(_fabSpinner2.default, {
-            aContent: this.props.fabContentOpen,
-            bContent: this.props.fabContentClose || this.props.fabContentOpen,
-            showB: open
-          })
+          'div',
+          { style: styles.fabButton },
+          _react2.default.createElement(
+            _Button2.default,
+            (0, _extends3.default)({ fab: true,
+              color: 'primary'
+            }, this.props.fabProps, {
+              onTouchTap: this.handleFabTouchTap
+            }),
+            _react2.default.createElement(_fabSpinner2.default, {
+              aContent: this.props.fabContentOpen,
+              bContent: this.props.fabContentClose || this.props.fabContentOpen,
+              showB: open
+            })
+          )
         ),
         enhancedChildren
       );
@@ -122,6 +128,10 @@ var SpeedDial = exports.SpeedDial = function (_React$Component) {
   return SpeedDial;
 }(_react2.default.Component);
 
+SpeedDial.propTypes = {};
+SpeedDial.defaultProps = {
+  effect: 'fade-staggered'
+};
 exports.default = SpeedDial;
 /* export const SpeedDial = React.createClass({
 

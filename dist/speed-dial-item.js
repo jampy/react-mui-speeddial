@@ -36,36 +36,30 @@ var _Button = require('material-ui/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
+var _styles = require('material-ui/styles');
+
 var _Typography = require('material-ui/Typography');
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var styles = {
-
-  itemContainer: {
-    position: "absolute",
-    right: 48,
-    top: 20,
-
-    WebkitTransform: "translateY(-50%)",
-    MozTransform: "translateY(-50%)",
-    MsTransform: "translateY(-50%)",
-    OTransform: "translateY(-50%)",
-    transform: "translateY(-50%)"
+var newStyles = {
+  container: {
+    display: 'flex',
+    marginBottom: '8px'
+  },
+  itemText: {
+    flex: 1,
+    padding: '16px'
   }
-
 };
-
 var effects = {
-
   "none": function none(visible, index) {
     return {
       display: visible ? "" : "none"
     };
   },
-
   "fade-staggered": function fadeStaggered(visible, index) {
     return {
       transition: visible ? "450ms" : "300ms",
@@ -74,14 +68,12 @@ var effects = {
       opacity: visible ? 1 : 0
     };
   },
-
   "fade": function fade(visible, index) {
     return {
       transition: visible ? "450ms" : "300ms",
       opacity: visible ? 1 : 0
     };
   },
-
   "slide": function slide(visible, index) {
     return {
       transition: visible ? "250ms" : "300ms",
@@ -89,7 +81,6 @@ var effects = {
       opacity: visible ? 1 : 0
     };
   }
-
 };
 
 function getYPos(index) {
@@ -100,41 +91,37 @@ var SpeedDialItem = function (_React$Component) {
   (0, _inherits3.default)(SpeedDialItem, _React$Component);
 
   function SpeedDialItem() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     (0, _classCallCheck3.default)(this, SpeedDialItem);
-    return (0, _possibleConstructorReturn3.default)(this, (SpeedDialItem.__proto__ || (0, _getPrototypeOf2.default)(SpeedDialItem)).apply(this, arguments));
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = SpeedDialItem.__proto__ || (0, _getPrototypeOf2.default)(SpeedDialItem)).call.apply(_ref, [this].concat(args))), _this), _this.handleTouchTap = function (ev) {
+      _this.props.onCloseRequest();
+      _this.props.onTouchTap(ev);
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
   (0, _createClass3.default)(SpeedDialItem, [{
-    key: 'handleTouchTap',
-    value: function handleTouchTap(ev) {
-      this.props.onCloseRequest();
-      this.props.onTouchTap(ev);
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
           index = _props.index,
-          visible = _props.visible;
+          visible = _props.visible,
+          effect = _props.effect;
 
-      var style = {
-        pointerEvents: visible ? "" : "none",
-        position: "absolute",
-        whiteSpace: "nowrap",
-        right: 8,
-        bottom: getYPos(index)
-      };
       var fx = effects[this.props.effect];
-      if (!fx) fx = effects.none;
-
-      style = (0, _extends3.default)({}, style, fx(visible, index));
-
       return _react2.default.createElement(
         'div',
-        { style: style },
+        { style: (0, _extends3.default)({}, newStyles.container, fx(visible, index)) },
         _react2.default.createElement(
           'div',
-          { style: styles.itemContainer },
+          { style: newStyles.itemText },
           _react2.default.createElement(
             _Typography2.default,
             { type: 'body2' },
@@ -154,49 +141,8 @@ var SpeedDialItem = function (_React$Component) {
   }]);
   return SpeedDialItem;
 }(_react2.default.Component);
-/* export const SpeedDialItem = React.createClass({
 
-  handleTouchTap(ev) {
-    this.props.onCloseRequest();
-    this.props.onTouchTap(ev);
-  },
-
-  render: function() {
-
-    const { index, visible } = this.props;
-
-    let style = {
-      pointerEvents: visible ? "" : "none",
-      position: "absolute",
-      whiteSpace: "nowrap",
-      right: 8,
-      bottom: getYPos(index)
-    };
-
-    let fx = effects[this.props.effect];
-
-    if (!fx)
-      fx = effects.none;
-
-    style = { ...style, ...fx(visible, index) };
-
-    return <div style={style}>
-
-      <div style={styles.itemContainer}>
-        <Typography type="body2">{this.props.label}</Typography>
-      </div>
-
-      <Button fab
-        color="primary"
-        onTouchTap={this.handleTouchTap}
-      >
-        {this.props.fabContent}
-      </Button>
-
-    </div>;
-
-  }
-
-}); */
-
+SpeedDialItem.defaultProps = {
+  effect: 'none'
+};
 exports.default = SpeedDialItem;

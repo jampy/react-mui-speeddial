@@ -11,7 +11,9 @@
   },
   "homepage": "https://github.com/jampy/react-mui-speeddial#readme",
   "main": "./dist/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  },
   "peerDependencies": {
     "babel-polyfill": "^6.13.0",
     "material-ui": "1.0.0-beta.17",

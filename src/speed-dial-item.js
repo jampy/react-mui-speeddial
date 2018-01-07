@@ -1,5 +1,7 @@
 import React from 'react'
 import Button from 'material-ui/Button';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 
 const newStyles = {
@@ -59,52 +61,10 @@ class SpeedDialItem extends React.Component {
     </div>);
   }
 }
+SpeedDialItem.propTypes = {
+  effect: PropTypes.oneOf(['none', 'fade', 'slide', 'fade-staggered']),
+}
 SpeedDialItem.defaultProps = {
   effect: 'none',
 }
-/* export const SpeedDialItem = React.createClass({
-
-  handleTouchTap(ev) {
-    this.props.onCloseRequest();
-    this.props.onTouchTap(ev);
-  },
-
-  render: function() {
-
-    const { index, visible } = this.props;
-
-    let style = {
-      pointerEvents: visible ? "" : "none",
-      position: "absolute",
-      whiteSpace: "nowrap",
-      right: 8,
-      bottom: getYPos(index)
-    };
-
-    let fx = effects[this.props.effect];
-
-    if (!fx)
-      fx = effects.none;
-
-    style = { ...style, ...fx(visible, index) };
-
-    return <div style={style}>
-
-      <div style={styles.itemContainer}>
-        <Typography type="body2">{this.props.label}</Typography>
-      </div>
-
-      <Button fab
-        color="primary"
-        onTouchTap={this.handleTouchTap}
-      >
-        {this.props.fabContent}
-      </Button>
-
-    </div>;
-
-  }
-
-}); */
-
 export default SpeedDialItem

@@ -17,13 +17,9 @@ const styles = {
 
 };
 
-
-export const FabSpinner = React.createClass({
-
-  render: function() {
-
+class FabSpinner extends React.Component {
+  render() {
     const { showB } = this.props;
-
     let ac = React.cloneElement(this.props.aContent, {
       style: {
         ...this.props.style,
@@ -37,9 +33,7 @@ export const FabSpinner = React.createClass({
         ...this.props.bContent.style
       }
     });
-
     return <div style={styles.container}>
-
       <div style={{
         ...styles.overlap,
         transform: "translateY(-50%) rotate(" + (showB ? "90deg" : 0) + ")",
@@ -47,7 +41,6 @@ export const FabSpinner = React.createClass({
       }}>
         {ac}
       </div>
-
       <div style={{
         ...styles.overlap,
         transform: "translateY(-150%) rotate(" + (showB ? 0 : "-90deg") + ")",
@@ -55,9 +48,7 @@ export const FabSpinner = React.createClass({
       }}>
         {bc}
       </div>
-
     </div>;
-
   }
-
-});
+}
+export default FabSpinner;

@@ -1,33 +1,47 @@
 {
-  "name": "react-mui-speeddial",
-  "version": "0.0.6",
-  "description": "a speed dial component for Material UI",
+  "name": "react-material-speeddial",
+  "version": "0.0.1",
+  "description": "a speed dial component for Material UI built using material-ui v1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jampy/react-mui-speeddial.git"
+    "url": "git+https://github.com/rahulravindran2709/react-material-speeddial.git"
   },
   "bugs": {
-    "url": "https://github.com/jampy/react-mui-speeddial/issues"
+    "url": "https://github.com/rahulravindran2709/react-material-speeddial/issues"
   },
-  "homepage": "https://github.com/jampy/react-mui-speeddial#readme",
+  "homepage": "https://github.com/rahulravindran2709/react-material-speeddial#readme",
   "main": "./dist/index.js",
   "dependencies": {
+    "prop-types": "^15.6.0"
   },
   "peerDependencies": {
     "babel-polyfill": "^6.13.0",
-    "material-ui": "^0.16.1"
+    "material-ui": "1.0.0-beta.17",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "react": "16.0.0",
+    "react-dom": "16.0.0"
   },
   "devDependencies": {
+    "@storybook/react": "^3.3.3",
     "babel-cli": "^6.18.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
-    "babel-preset-react": "^6.16.0"
+    "material-ui": "1.0.0-beta.17",
+    "material-ui-icons": "1.0.0-beta.17",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "react-tap-event-plugin": "^3.0.2"
   },
   "scripts": {
     "build": "sh scripts/build.sh",
     "prepublish": "npm run build",
-    "test": "true"
+    "test": "true",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "postinhstall": "yarn add -P --no-lockfile $(node -e \"process.stdout.write(String(Object.entries(require('./package.json').peerDependencies).map(d => d.join('@')).join(' ')))\")"
   },
   "keywords": [
     "material-ui",
@@ -37,6 +51,6 @@
     "speed dial",
     "floating action button"
   ],
-  "author": "Udo Giacomozzi <udo@nova-sys.net>",
+  "author": "Rahul Ravindran <rahulravindran2709@gmail.com>",
   "license": "MIT"
 }

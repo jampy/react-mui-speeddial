@@ -1,19 +1,26 @@
-# Speeddial (enhanced Floating Action button) for [Material-UI](https://github.com/callemall/material-ui)
+This is a fork of [jampy/react-mui-speeddial](https://github.com/jampy/react-mui-speeddial) which is my attempt
+at refactoring code to use the new material-ui v1.
+I acknowledge the original author for this awesome plugin.
 
-[![NPM](https://nodei.co/npm/react-mui-speeddial.png)](https://npmjs.org/package/react-mui-speeddial)
+# Speeddial (enhanced Floating Action button) for [Material-UI v1](https://github.com/mui-org/material-ui)
 
-A Speed dial according to the [Material Design guide](https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-transitions). Scroll down to "Speed dial" 
+[![NPM](https://nodei.co/npm/react-material-speeddial.png)](https://npmjs.org/package/react-material-speeddial)
+
+A Speed dial according to the [Material Design guide](https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-transitions). Scroll down to "Speed dial"
 for an introduction.
 
-Additionally to the Google referencem this component adds optional labels 
+Additionally to the Google reference this component adds optional labels
 beneath the action buttons.
- 
+
 ## Installation
-
+ *Using npm*
 ```
-npm i --save react-mui-speeddial
+npm i --save react-material-speeddial
 ```
-
+*Using yarn*
+```
+yarn add react-material-speeddial
+```
 ## Demo
 
 ![Screenshot](https://i.imgur.com/cPkQOfH.gif)
@@ -21,13 +28,14 @@ npm i --save react-mui-speeddial
 ## Usage
 
 ```jsx
-import { SpeedDial, SpeedDialItem } from 'react-mui-speeddial';
+import { SpeedDial, SpeedDialItem } from 'react-material-speeddial';
 
 // just some icons for illustration (example only):
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import NewGameIcon from 'material-ui/svg-icons/av/playlist-add';
-import NewPageIcon from 'material-ui/svg-icons/action/note-add';
+import ContentAdd from 'material-ui-icons/Add';
+import NavigationClose from 'material-ui-icons/Close';
+import NewGameIcon from 'material-ui-icons/PlaylistAdd';
+import NewPageIcon from 'material-ui-icons/NoteAdd';
+
 
 
 render() {
@@ -40,13 +48,13 @@ render() {
         <NavigationClose />
       }
     >
-    
+
       <SpeedDialItem
         label="new game"
         fabContent={<NewGameIcon/>}
         onTouchTap={this.startNewGame}
       />
-      
+
       <SpeedDialItem
         label="new page"
         fabContent={<NewPageIcon/>}
@@ -68,33 +76,33 @@ transforms into a "close" icon.
  - `open` = You can use this property to manually open/close the speed dials.
   If not specified, then the component will control itself automatically.
  - `effect` = The appear/disappear effect to use during open/close. Available
-  options are: 
+  options are:
    - `none`
    - `fade-staggered` (default)
    - `fade`
    - `slide`
- - `fabProps` = props to pass to the internal `<FloatingActionButton>` 
+ - `fabProps` = props to pass to the internal `<FloatingActionButton>`
   component. Use this to style the FAB, for example.
- - `fabContentOpen` = children for the FAB in the *closed* state. This is 
-  usually an `<SvgIcon>` or `<FontIcon>` telling the user that clicking the 
+ - `fabContentOpen` = children for the FAB in the *closed* state. This is
+  usually an `<SvgIcon>` or `<FontIcon>` telling the user that clicking the
   FAB will *open* additional choices.
- - `fabContentClose` = children for the FAB in the *opened* state. If not 
+ - `fabContentClose` = children for the FAB in the *opened* state. If not
   specified, the value of `fabContentOpen` will be used instead.
- - `onOpenCloseRequest` = optional callback; called when the user clicks 
+ - `onOpenCloseRequest` = optional callback; called when the user clicks
   the main FAB  
- - `children` = the children of the `<SpeedDial>` component should be 
-  `<SpeedDialItem>` instances (see below). 
- - `style` = CSS style of the root container. Use this to position the FAB. 
-  Note that `position` must remain `relative` or `absolute`. You might also 
-  want to encapsulate the `<SpeedDial>` in a positioned parent container to 
-  avoid problems. 
-  
+ - `children` = the children of the `<SpeedDial>` component should be
+  `<SpeedDialItem>` instances (see below).
+ - `style` = CSS style of the root container. Use this to position the FAB.
+  Note that `position` must remain `relative` or `absolute`. You might also
+  want to encapsulate the `<SpeedDial>` in a positioned parent container to
+  avoid problems.
+
 ## `<SpeedDialItem>` props
 
- - `fabContent` = usually a `<SvgIcon>` or `<FontIcon>` to specify the icon 
+ - `fabContent` = usually a `<SvgIcon>` or `<FontIcon>` to specify the icon
   to display in the mini-FAB.
- - `label` = an optional label to display on the left of the mini-FAB. This 
-  can be a simple text or even other React components. The content is 
+ - `label` = an optional label to display on the left of the mini-FAB. This
+  can be a simple text or even other React components. The content is
   vertically aligned to the FAB.
  - `onTouchTap` = called when the user clicks the mini-FAB (*not* called when
   the label is clicked)

@@ -83,7 +83,8 @@ export const SpeedDialItem = React.createClass({
 
       <FloatingActionButton
         mini={true}
-        secondary={true}
+        secondary={this.props.secondary? this.props.secondary : false}
+        style={this.props.style}
         onTouchTap={this.handleTouchTap}
       >
         {this.props.fabContent}
